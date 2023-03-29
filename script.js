@@ -1,10 +1,23 @@
+// const mongoose = require('mongoose');
+// //requiring the User from the userModel
+// const User = require('./User')
+// mongoose.connect("mongodb://localhost/testdb");
+
+// //create a new user
+// const user = new User({ name: "paul", age: 26 })
+
+// //save the user to the db
+// user.save().then(() => console.log("user saved"));
+//============================================================================
 const mongoose = require('mongoose');
-//requiring the User from the userModel
-const User = require('./User')
-mongoose.connect("mongodb://localhost/testdb");
+const User = require("./User")
 
-//create a new user
-const user = new User({ name: "paul", age: 26 })
+mongoose.connect("mongodb://localhost/testdb")
 
-//save the user to the db
-user.save().then(() => console.log("user saved"));
+
+async function run() {
+    const user = new User({ name: "Fred", age: 26 })
+    user.save()
+    console.log(user)
+}
+run()
