@@ -1,4 +1,4 @@
-// 1st
+
 // const mongoose = require('mongoose');
 // //requiring the User from the userModel
 // const User = require('./User')
@@ -9,8 +9,8 @@
 
 // //save the user to the db
 // user.save().then(() => console.log("user saved"));
-//============================================================================
- //Second
+// //============================================================================
+//  //Second
 
 // const mongoose = require('mongoose');
 // const User = require("./User")
@@ -24,17 +24,30 @@
 //     console.log(user)
 // }
 // run()
+// //================================================================
+
+// const mongoose = require("mongoose");
+// const Car = require("./Car")
+
+// mongoose.connect("mongodb://localhost/testdb")
+
+// async function show() {
+//     const car = new Car({ make: "Audi", model: "S5", year: 2022, odometer: 2000})
+//     await car.save()
+//     console.log(car)
+// }
+
+// show()
 //================================================================
+// ANOTHER CREATE METHOD 
 
 const mongoose = require("mongoose");
 const Car = require("./Car")
-
 mongoose.connect("mongodb://localhost/testdb")
 
-async function show() {
-    const car = new Car({ make: "Audi", model: "S5", year: 2022, odometer: 2000})
+makeCar()
+async function makeCar() {
+    const car = await Car.create({ make: "BMW", model: "3 series", year: 2022, odometer: "1000"})
     await car.save()
     console.log(car)
 }
-
-show()
